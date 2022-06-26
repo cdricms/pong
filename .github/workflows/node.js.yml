@@ -33,6 +33,9 @@ jobs:
           git config --global user.email '36056008+cdricms@users.noreply.github.com'
           git switch build || git switch -c build
           npm run build
+          git rm -rf !("dist")
+          mv dist/* .
+          git rm -r dist
           git add .
           git commit -m "Built"
           git push -u origin build
