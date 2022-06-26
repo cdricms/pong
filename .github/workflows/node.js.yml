@@ -29,11 +29,13 @@ jobs:
       - run: npm i
       - name: Push to build branch
         run: |
+          bash
           git config --global user.name 'cdricms'
           git config --global user.email '36056008+cdricms@users.noreply.github.com'
           git switch build || git switch -c build
           npm run build
-          rm -rf !("dist")
+          shopt -s extglob
+          rm -rf !(dist)
           mv dist/* .
           rm -r dist
           git add .
