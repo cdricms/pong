@@ -30,7 +30,7 @@ jobs:
       - name: Push to build branch
         run: |
           bash
-          git push origin --delete build
+          git pull -f
           git config --global user.name 'cdricms'
           git config --global user.email '36056008+cdricms@users.noreply.github.com'
           git switch -c build
