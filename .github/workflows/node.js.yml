@@ -30,9 +30,10 @@ jobs:
       - name: Push to build branch
         run: |
           bash
+          git push origin --delete build
           git config --global user.name 'cdricms'
           git config --global user.email '36056008+cdricms@users.noreply.github.com'
-          git switch build || git switch -c build
+          git switch -c build
           npm run build
           shopt -s extglob
           rm -rf !(dist)
