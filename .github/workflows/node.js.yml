@@ -35,6 +35,6 @@ jobs:
           npm run build
           git add .
           git commit -m "Built"
-          git push
+          git push -u origin bulid
         
     
